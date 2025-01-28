@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# User Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This project is a **User Management Dashboard** built using **React.js** and **Material-UI**. It provides functionalities to manage a list of users, including adding, editing, and deleting users. Additional features like pagination and search make the application user-friendly and efficient.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **User List Display**:
+   - Users are displayed in a clean, tabular format.
+   - Each user has options to edit or delete their details.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Add New User**:
+   - A modal form to add new users with fields for ID, First Name, Last Name, Email, and Department.
+   - On submission, the user is added to the list.
 
-### `npm test`
+3. **Edit User**:
+   - Users can update their details by editing their information through a modal form.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. **Delete User**:
+   - Users can be removed from the list using the delete button.
 
-### `npm run build`
+5. **Pagination**:
+   - Displays users in paginated chunks for better performance and usability.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+6. **Search Functionality**:
+   - Allows users to search by user first name or other criteria to filter the displayed list.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+7. **Error Handling**:
+   - Friendly error messages are displayed when API requests fail.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+8. **Responsive Design**:
+   - The interface is mobile-friendly, ensuring a seamless experience across devices.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies Used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **React.js**: 
+   - Used to build the user interface with a component-based architecture.
+2. **Material-UI**: 
+   - Provides pre-styled components for a modern and consistent design.
+3. **Axios**: 
+   - Used for making API calls to interact with the `JSONPlaceholder` API.
+4. **JSONPlaceholder API**: 
+   - A mock REST API used to simulate user data for development purposes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Component Structure
 
-## Learn More
+1. **App Component**:
+   - The main wrapper that integrates all other components.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **UserList Component**:
+   - Displays the list of users and provides edit and delete options.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **UserForm Component**:
+   - Handles adding and editing user details.
 
-### Code Splitting
+4. **ErrorBoundary Component**:
+   - Catches errors and displays user-friendly messages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Implementation Details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 1. **Fetching and Displaying Users**
+   - Used the `componentDidMount()` lifecycle method (or `useEffect` in functional components) to fetch users from the API.
+   - Data is stored in the state and displayed in a paginated table.
 
-### Making a Progressive Web App
+### 2. **Adding a New User**
+   - A button labeled "Add User" opens a modal form.
+   - The form includes validation for required fields and proper email format.
+   - Sends a `POST` request to the API and updates the state with the new user.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 3. **Editing a User**
+   - On clicking the "Edit" button, the form fields are pre-populated with the selected user's data.
+   - Sends a `PUT` request to update user details and reflects the changes in the state.
 
-### Advanced Configuration
+### 4. **Deleting a User**
+   - Clicking the "Delete" button removes the user from the state.
+   - Sends a `DELETE` request to the API to simulate deletion.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 5. **Pagination**
+   - Users are displayed in chunks based on the current page.
+   - State variables manage the current page and items per page.
 
-### Deployment
+### 6. **Search Functionality**
+   - Filters the user list based on the search query.
+   - Updates the displayed list dynamically as the user types.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 7. **Error Handling**
+   - All API requests are wrapped in `try-catch` blocks.
+   - Errors are displayed as friendly messages on the UI.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## How to Run the Project
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/RavinderNyalakanti/user_management_dashboard.git
